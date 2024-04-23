@@ -49,7 +49,7 @@ public class UserController {
 
     }
     //Build delete user REST API
-@DeleteMapping("id")
+@DeleteMapping("{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId)
     {
         userService.deleteUser(userId);
