@@ -1,6 +1,8 @@
 package com.firstSpringBootProject.firstSpringBootProject.service.impl;
 
+import com.firstSpringBootProject.firstSpringBootProject.dto.UserDto;
 import com.firstSpringBootProject.firstSpringBootProject.entity.User;
+import com.firstSpringBootProject.firstSpringBootProject.mapper.UserMapper;
 import com.firstSpringBootProject.firstSpringBootProject.repository.UserRepository;
 import com.firstSpringBootProject.firstSpringBootProject.service.UserService;
 import lombok.AllArgsConstructor;
@@ -17,8 +19,20 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDto userDto) {
+
+        //Convert userdto into user jpa entity
+        User user= UserMapper.mapToUser(userDto);
+
+
+        User savedUser= userRepository.save(user);
+
+        //Convert userJpa entity to user dto
+
+        UserDto savedUserDto=UserMapper.mapToUser(savedUser);
+
+        return savedUserDto;
+
     }
 
     @Override

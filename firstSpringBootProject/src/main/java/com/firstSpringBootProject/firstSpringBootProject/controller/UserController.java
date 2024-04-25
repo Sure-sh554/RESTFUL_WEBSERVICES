@@ -1,5 +1,6 @@
 package com.firstSpringBootProject.firstSpringBootProject.controller;
 
+import com.firstSpringBootProject.firstSpringBootProject.dto.UserDto;
 import com.firstSpringBootProject.firstSpringBootProject.entity.User;
 import com.firstSpringBootProject.firstSpringBootProject.service.UserService;
 import lombok.AllArgsConstructor;
@@ -19,9 +20,9 @@ public class UserController {
 
     //Build create User REST API
 @PostMapping
-    public ResponseEntity<User> createUser (@RequestBody User user)
+    public ResponseEntity<UserDto> createUser (@RequestBody UserDto user)
     {
-        User savedUser=userService.createUser(user);
+        UserDto savedUser=userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 //build get User by id REST API

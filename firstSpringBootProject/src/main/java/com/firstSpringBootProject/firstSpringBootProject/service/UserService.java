@@ -1,12 +1,13 @@
 package com.firstSpringBootProject.firstSpringBootProject.service;
 
+import com.firstSpringBootProject.firstSpringBootProject.dto.UserDto;
 import com.firstSpringBootProject.firstSpringBootProject.entity.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    User createUser(User user);
+    UserDto createUser(UserDto user);
 
     User getUserById (Long userId);
 
