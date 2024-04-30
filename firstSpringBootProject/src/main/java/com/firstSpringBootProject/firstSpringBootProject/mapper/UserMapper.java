@@ -5,7 +5,7 @@ import com.firstSpringBootProject.firstSpringBootProject.entity.User;
 
 public class UserMapper {
 //Convert User JPA Entity to UserDto
-    public static UserDto mapToUser(User user)
+    public static UserDto mapToUserDto(User user)
     {
         UserDto userDto=new UserDto(
                 user.getId(),
