@@ -2,12 +2,17 @@ package com.firstSpringBootProject.firstSpringBootProject.controller;
 
 import com.firstSpringBootProject.firstSpringBootProject.dto.UserDto;
 import com.firstSpringBootProject.firstSpringBootProject.entity.User;
+import com.firstSpringBootProject.firstSpringBootProject.exception.ErrorDetails;
+import com.firstSpringBootProject.firstSpringBootProject.exception.ResourceNotFoundException;
 import com.firstSpringBootProject.firstSpringBootProject.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -57,6 +62,17 @@ public class UserController {
         return new ResponseEntity<>("User Successfully deleted ",HttpStatus.OK);
 
     }
+//@ExceptionHandler(ResourceNotFoundException.class)
+//    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception,
+//                                                                        WebRequest webRequest){
+//        ErrorDetails errorDetails=new ErrorDetails(
+//                LocalDateTime.now(), exception.getMessage(),
+//                webRequest.getDescription(false),
+//                "USER_NOT_FOUND"
+//        );
+//        return new ResponseEntity<>(errorDetails,HttpStatus.NOT_FOUND);
+//
+//    }
 
 
 }
